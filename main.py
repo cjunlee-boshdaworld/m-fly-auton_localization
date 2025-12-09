@@ -1,0 +1,1 @@
+#make a main that reads info fast and prints results back
