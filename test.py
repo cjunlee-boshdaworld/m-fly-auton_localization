@@ -6,7 +6,7 @@ def project_point(K, R, t, X):
     """Project 3D point X (world) into camera image."""
     X_cam = R @ X.reshape(3,1) + t
     x = K @ X_cam
-    return (x[0]/x[2], x[1]/x[2])  # pixel coords
+    return ((x[0]/x[2]).squeeze(), (x[1]/x[2]).squeeze())  # pixel coords
 
 def main():
     # ---------- Camera intrinsics ----------
@@ -27,8 +27,8 @@ def main():
     X_gt = np.array([0.5, 0.2, 4.0])
 
     # ---------- Project to both images ----------
-    u1,v1 = project_point(K, R1, t1, X_gt)
-    u2,v2 = project_point(K, R2, t2, X_gt)
+    (u1,v1) = project_point(K, R1, t1, X_gt)
+    (u2,v2) = project_point(K, R2, t2, X_gt)
 
     pt1 = (float(u1), float(v1))
     pt2 = (float(u2), float(v2))
@@ -44,3 +44,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+#GUY SAID TO TEST 0s AND ALSO NEGATIVE INPUTS
