@@ -7,7 +7,7 @@ from localization import triangulate_two_rays
 def main():
     Fx=float(input("cam fx: ")) #Focal lengths #Calibrate these with opencv calibrate camera function
     Fy=float(input("cam fy: "))
-    Cx=float(input("cam cx: ")) #This is center of the image in terms of pixels
+    Cx=float(input("cam cx: ")) #its camera from lens or something
     Cy=float(input("cam cy: ")) 
     K1 = np.array([
         [Fx, 0, Cx],
